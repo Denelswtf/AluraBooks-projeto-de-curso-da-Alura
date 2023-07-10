@@ -1,0 +1,246 @@
+.cabecalho__menu-hamburger {
+    width: 24px;
+    height: 24px;
+    background-image: url(../assets/Menu.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+    transition: 0.3s ease-out;
+}
+
+.cabecalho__menu-hamburger:checked {
+    background: var(--azul-degrade);
+
+}
+
+.cabecalho {
+    background-color: var(--branco);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+}
+
+.container__botao:checked ~ .container__rotulo > .cabecalho__menu-hamburger {
+    background-image: url("../assets/Menu\ Aberto.png");
+    transition: 0.3s ease-out;
+}
+
+.container__botao:checked ~ .container__rotulo {
+    background: var(--azul-degrade);
+}
+
+.container__imagem {
+    padding: 8px;
+}
+
+.container__imagem__menu {
+    padding: 12px;
+}
+
+.lista-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    width: 60vw;
+}
+
+.container__botao {
+    display: none;
+}
+
+.container__botao:checked~.lista-menu {
+    display: block;
+}
+
+.lista-menu__titulo,
+.lista-menu__item {
+    padding: 1em;
+    background-color: var(--branco);
+    
+}
+
+.lista-menu__titulo {
+    color: var(--laranja);
+    font-weight: 700;
+}
+
+.lista-menu__link {
+    background: var(--azul-degrade);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-transform: uppercase;
+}
+
+.container__titulo {
+    display: none;
+}
+
+.opcoes {
+    display: none;
+}
+
+.container__texto {
+    display: none;
+}
+
+@media screen and (min-width: 1024px) {
+
+    .cabecalho__menu-hamburger {
+        display: none;
+    }
+
+    .container__titulo, .container__titulo--negrito {
+        font-family: var(--fonte-secundaria);
+        font-size: 30px;
+    }
+
+    .container__titulo {
+        font-weight: 400;
+        display: block;
+    }
+
+    .container__titulo--negrito {
+        font-weight: 700;
+    }
+
+    .opcoes {
+        display: flex;
+    }
+
+    .opcoes__item {
+        padding: 1em 1.3em;
+        text-transform: uppercase;
+    }
+
+    .opcoes__link {
+        text-decoration: none;
+        color: var(--preto);
+    }
+
+    .container__imagem-fav {
+        display: none;
+    }
+
+    .container__imagem {
+        padding: 0.5em 1.5em;
+    }
+
+    .opcoes__botao:checked~.lista-menu{
+        display: block;
+        width: auto;
+    }
+
+    .opcoes__item-menu {
+        background-color: var(--azul-degrade);
+        color: var(--preto);
+    }
+
+    .opcoes__botao:checked~.opcoes__item-menu{
+        background: var(--azul-degrade);
+        color: var(--branco);
+    }
+
+    .opcoes__botao {
+        display: none;
+    }
+
+    .lista-menu__item:hover {
+        background: var(--azul-degrade);
+    }
+
+    .lista-menu__item:hover > .lista-menu__link {
+        -webkit-text-fill-color: var(--branco);
+        text-decoration: none;
+    }
+}
+
+@media screen and (min-width: 1728px) {
+
+    .container__titulo {
+        margin-right: 3em;
+    }
+
+    .container__texto {
+        display: block;
+    }
+
+    .container__imagem {
+        padding-right: 0.5em;
+    }
+
+    .container__link {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: var(--preto);
+    }
+
+    .cabecalho {
+        padding: 0 2em;
+    }
+
+    .opcoes {
+        margin-right: auto;
+    }
+
+    .opcoes__item {
+        transition: 0.5s ease;
+        cursor: pointer;
+    }
+    
+    .lista-menu {
+        transition: 0.3s ease-in-out;
+    }
+
+    .lista-menu__item {
+        cursor: pointer;
+        background: var(--branco);
+        transition: 0.5s ease-in-out;
+    }
+
+    .lista-menu__item:hover {
+        cursor: pointer;
+        background-color: var(--azul-degrade);
+        -webkit-background-color-clip: padding-box;
+        -webkit-text-fill-color: var(--branco);
+        transition: 0.5s;
+    }
+
+
+    .lista-menu__link:hover {
+        color: var(--branco);
+    }
+
+    .container__imagem {
+        padding-left: 0;
+        text-align: center;
+    }
+
+    .container__link {
+        margin-right: 24px;
+        position: relative;
+    }
+
+    .container__link::after {
+        content: " ";
+        width: 0%;
+        height: 2px;
+        background-color: var(--preto);
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        transition: 0.3s ease-in-out;
+    }
+
+    .container__link:hover::after {
+        width: 100%;
+    }
+
+}
